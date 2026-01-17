@@ -22,7 +22,7 @@
       },
       {
         "label": "GitHub",
-        "href": "https://github.com/Odleer/Ratgore"
+        "href": "https://github.com/ss14-art/ratgore"
       }
     ]
   },
@@ -35,7 +35,7 @@
     {
       "name": "GitHub",
       "icon": "github",
-      "url": "https://github.com/Odleer/Ratgore"
+      "url": "https://github.com/ss14-art/ratgore"
     }
   ],
   "topbarLinks": [
@@ -46,7 +46,7 @@
   ],
   "topbarCtaButton": {
     "type": "github",
-    "url": "https://github.com/Odleer/Ratgore"
+    "url": "https://github.com/ss14-art/ratgore"
   },
   "navigation": {
     "groups": [
@@ -292,7 +292,7 @@
   "footer": {
     "socials": {
       "discord": "https://discord.gg/sC5Q43dKKU",
-      "github": "https://github.com/Odleer/Ratgore"
+      "github": "https://github.com/ss14-art/ratgore"
     }
   }
 }
