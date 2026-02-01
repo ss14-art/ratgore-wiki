@@ -48,6 +48,13 @@
     "type": "github",
     "url": "https://github.com/ss14-art/ratgore"
   },
+  "errors": {
+  "404": {
+    "redirect": false,
+    "title": "Страница не найдена",
+    "description": "Мы не смогли найти эту страницу."
+  }
+},
   "navigation": {
     "groups": [
       {
