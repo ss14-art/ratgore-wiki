@@ -97,7 +97,8 @@
                 "pages": [
                   "factions/crescent/ships/combat/fighter",
                   "factions/crescent/ships/combat/corvette",
-                  "factions/crescent/ships/combat/destroyer"
+                  "factions/crescent/ships/combat/destroyer",
+                  "factions/crescent/ships/combat/drones"
                 ]
               },
               {
