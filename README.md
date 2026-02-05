@@ -1,43 +1,419 @@
-# Mintlify Starter Kit
+---
+title: "Для редакторов"
+sidebarTitle: "Для редакторов"
+icon: "pen-to-square"
+description: "Полное руководство по написанию статей для Ratgore"
+---
 
-Use the starter kit to get your docs deployed and ready to customize.
+<Note>
+Эта документация построена на платформе [Mintlify](https://mintlify.com). Все страницы пишутся в формате **MDX** — это Markdown с поддержкой React-компонентов.
+</Note>
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Структура страницы
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+Каждая страница начинается с **frontmatter** — метаданных в формате YAML между `---`:
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
-mint dev
+```yaml
+---
+title: "Заголовок страницы"
+description: "Краткое описание для SEO"
+sidebarTitle: "Короткий заголовок"
+icon: "book"
+---
 ```
 
-View your local preview at `http://localhost:3000`.
+<AccordionGroup>
+  <Accordion title="Основные поля frontmatter" icon="gear">
+    | Поле | Описание |
+    |------|----------|
+    | `title` | Заголовок страницы (обязательно) |
+    | `description` | Описание для SEO и превью |
+    | `sidebarTitle` | Короткий заголовок для боковой панели |
+    | `icon` | Иконка из [Font Awesome](https://fontawesome.com/icons) или [Lucide](https://lucide.dev/icons) |
+    | `tag` | Метка рядом с заголовком (например, "NEW") |
+  </Accordion>
+</AccordionGroup>
 
-## Publishing changes
+---
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+## Форматирование текста
 
-## Need help?
+### Базовый синтаксис Markdown
 
-### Troubleshooting
+```markdown
+**Жирный текст**
+*Курсив*
+~~Зачёркнутый~~
+`inline код`
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+[Ссылка](https://example.com)
+![Картинка](/images/hero-dark.png)
+```
+**Жирный текст**
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+*Курсив*
+
+~~Зачёркнутый~~
+
+`inline код`
+
+[Ссылка](https://example.com)
+![Картинка](/images/hero-dark.png)
+
+### Заголовки
+
+Используйте заголовки для структурирования контента. Они автоматически появляются в оглавлении справа.
+
+```markdown
+## Заголовок второго уровня
+### Заголовок третьего уровня
+#### Заголовок четвёртого уровня
+```
+
+<Warning>
+Не пропускайте уровни заголовков! Например, не переходите от `##` сразу к `####`.
+</Warning>
+
+### Списки
+
+```markdown
+- Маркированный список
+- Ещё один пункт
+  - Вложенный пункт
+
+1. Нумерованный список
+2. Второй пункт
+3. Третий пункт
+```
+
+- Маркированный список
+- Ещё один пункт
+  - Вложенный пункт
+
+1. Нумерованный список
+2. Второй пункт
+3. Третий пункт
+
+---
+
+## Компоненты
+
+Компоненты — это готовые блоки для оформления контента. Подробнее: [Mintlify Components](https://mintlify.com/docs/components)
+
+### Callouts (выноски)
+
+Используйте для привлечения внимания к важной информации:
+
+<CodeGroup>
+```mdx Note
+<Note>Информационная заметка</Note>
+```
+
+```mdx Tip
+<Tip>Полезный совет</Tip>
+```
+
+```mdx Warning
+<Warning>Предупреждение</Warning>
+```
+
+```mdx Info
+<Info>Дополнительная информация</Info>
+```
+</CodeGroup>
+
+**Результат:**
+
+<Note>Информационная заметка</Note>
+<Tip>Полезный совет</Tip>
+<Warning>Предупреждение</Warning>
+
+### Accordion (аккордеон)
+
+Сворачиваемые секции для длинного контента:
+
+```mdx
+<AccordionGroup>
+  <Accordion title="Первый вопрос" icon="circle-question">
+    Ответ на первый вопрос
+  </Accordion>
+  <Accordion title="Второй вопрос">
+    Ответ на второй вопрос
+  </Accordion>
+</AccordionGroup>
+```
+
+<AccordionGroup>
+  <Accordion title="Первый вопрос" icon="circle-question">
+    Ответ на первый вопрос
+  </Accordion>
+  <Accordion title="Второй вопрос">
+    Ответ на второй вопрос
+  </Accordion>
+</AccordionGroup>
+
+### Cards (карточки)
+
+Для навигации и выделения разделов:
+
+```mdx
+<CardGroup cols={2}>
+  <Card title="Первая карточка" icon="star" href="/page1">
+    Описание первой карточки
+  </Card>
+  <Card title="Вторая карточка" icon="rocket" href="/page2">
+    Описание второй карточки
+  </Card>
+</CardGroup>
+```
+
+<CardGroup cols={2}>
+  <Card title="Первая карточка" icon="star" href="/page1">
+    Описание первой карточки
+  </Card>
+  <Card title="Вторая карточка" icon="rocket" href="/page2">
+    Описание второй карточки
+  </Card>
+</CardGroup>
+
+### Steps (шаги)
+
+Для пошаговых инструкций:
+
+```mdx
+<Steps>
+  <Step title="Первый шаг">
+    Описание первого шага
+  </Step>
+  <Step title="Второй шаг">
+    Описание второго шага
+  </Step>
+</Steps>
+```
+
+<Steps>
+  <Step title="Первый шаг">
+    Описание первого шага
+  </Step>
+  <Step title="Второй шаг">
+    Описание второго шага
+  </Step>
+</Steps>
+
+### Tabs (вкладки)
+
+Для альтернативного контента:
+
+```mdx
+<Tabs>
+  <Tab title="Вариант A">
+    Контент варианта A
+  </Tab>
+  <Tab title="Вариант B">
+    Контент варианта B
+  </Tab>
+</Tabs>
+```
+
+<Tabs>
+  <Tab title="Вариант A">
+    Контент варианта A
+  </Tab>
+  <Tab title="Вариант B">
+    Контент варианта B
+  </Tab>
+</Tabs>
+
+---
+
+## Блоки кода
+
+### Простой блок кода
+
+Используйте тройные обратные кавычки с указанием языка:
+
+````markdown
+```lua
+local function hello()
+    print("Hello, Ratgore!")
+end
+```
+````
+
+```lua
+local function hello()
+    print("Hello, Ratgore!")
+end
+```
+
+### Группа кода
+
+Для примеров на разных языках:
+
+````mdx
+<CodeGroup>
+```lua Lua
+print("Hello")
+```
+
+```python Python
+print("Hello")
+```
+</CodeGroup>
+````
+
+<CodeGroup>
+```lua Lua
+print("Hello")
+```
+
+```python Python
+print("Hello")
+```
+</CodeGroup>
+
+---
+
+## Изображения
+
+### Базовое добавление
+
+```markdown
+![Описание изображения](/images/hero-dark.png)
+```
+![Описание изображения](/images/hero-dark.png)
+
+### С рамкой (Frame)
+
+```mdx
+<Frame>
+  <img src="/images/hero-dark.png" alt="Описание" />
+</Frame>
+```
+
+<Frame>
+  <img src="/images/hero-dark.png" alt="Описание" />
+</Frame>
+
+<Tip>
+Храните изображения в папке `/images`, с подпапкой вашей стати, например `/images/NCWL/Lore/History`. Используйте понятные имена файлов.
+</Tip>
+
+---
+
+## Локальная разработка
+
+Вы можете запустить вики локально на своём компьютере, чтобы видеть изменения в реальном времени перед публикацией.
+
+### Установка и запуск
+
+<Steps>
+  <Step title="Установите Mintlify CLI">
+    Откройте терминал и выполните команду:
+    
+    ```bash
+    npm i -g mint
+    ```
+    
+    <Note>
+    Для этого у вас должен быть установлен [Node.js](https://nodejs.org/)
+    </Note>
+  </Step>
+  
+  <Step title="Клонируйте репозиторий">
+    ```bash
+    git clone https://github.com/ss14-art/ratgore-wiki/
+    cd ratgore-wiki
+    ```
+  </Step>
+  
+  <Step title="Запустите локальный сервер">
+    В корневой папке проекта (где находится файл `docs.json`) выполните:
+    
+    ```bash
+    mint dev
+    ```
+  </Step>
+  
+  <Step title="Откройте в браузере">
+    Перейдите по адресу `http://localhost:3000`
+    
+    Теперь все изменения в файлах будут автоматически отображаться в браузере!
+  </Step>
+</Steps>
+
+### Решение проблем
+
+<AccordionGroup>
+  <Accordion title="Локальная среда не запускается" icon="circle-exclamation">
+    Выполните команду для обновления CLI до последней версии:
+    
+    ```bash
+    mint update
+    ```
+  </Accordion>
+  
+  <Accordion title="Страница загружается с ошибкой 404" icon="file-slash">
+    Убедитесь, что вы запускаете `mint dev` в папке, где находится файл `docs.json`
+  </Accordion>
+  
+  <Accordion title="Изменения не отображаются" icon="arrows-rotate">
+    - Проверьте, что файл сохранён
+    - Попробуйте обновить страницу в браузере (Ctrl+R / Cmd+R)
+    - Перезапустите `mint dev`
+  </Accordion>
+</AccordionGroup>
+
+### Публикация изменений
+
+После того как вы закончили редактирование:
+
+1. Сделайте коммит и отправьте изменения в репозиторий
+2. Изменения автоматически опубликуются после пуша в основную ветку
+
+<Tip>
+Рекомендуется тестировать все изменения локально перед публикацией, чтобы убедиться, что всё работает корректно.
+</Tip>
+
+---
+
+## Лучшие практики
+
+<CardGroup cols={2}>
+  <Card title="Структура" icon="sitemap">
+    - Один H1 на страницу (title в frontmatter)
+    - Логичная иерархия заголовков
+    - Короткие абзацы
+  </Card>
+  <Card title="Стиль" icon="pen">
+    - Пишите от второго лица ("вы")
+    - Избегайте сложных конструкций
+    - Используйте активный залог
+  </Card>
+  <Card title="Ссылки" icon="link">
+    - Описательный текст ссылок
+    - Относительные пути для внутренних ссылок
+    - Проверяйте битые ссылки
+  </Card>
+  <Card title="Код" icon="code">
+    - Всегда указывайте язык
+    - Тестируйте примеры
+    - Добавляйте комментарии
+  </Card>
+</CardGroup>
+
+---
+
+## Полезные ссылки
+
+<CardGroup cols={3}>
+  <Card title="Страницы" icon="file" href="https://mintlify.com/docs/organize/pages">
+    Настройка frontmatter
+  </Card>
+  <Card title="Компоненты" icon="puzzle-piece" href="https://mintlify.com/docs/components">
+    Библиотека компонентов
+  </Card>
+  <Card title="Форматирование" icon="text" href="https://mintlify.com/docs/create/text">
+    Синтаксис Markdown
+  </Card>
+</CardGroup>
