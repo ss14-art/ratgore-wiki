@@ -1,43 +1,53 @@
-# Mintlify Starter Kit
+# Ratgore Wiki
 
-Use the starter kit to get your docs deployed and ready to customize.
+**Описание:**
+Этот репозиторий содержит исходники вики для проекта **Ratgore** (модификация **Space Station 14**).
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+**Лицензия контента:** [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+---
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+## 🔧 Быстрый старт
 
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
+### 1. Клонирование и настройка
+```bash
+git clone https://github.com/ss14.art/ratgore-wiki.git
+cd ratgore-wiki
 ```
+
+### 2. Установка Mintlify CLI
+Требуется для локального предпросмотра изменений:
+```bash
 npm i -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
+### 3. Локальный предпросмотр
+Запустите сервер для проверки правок:
+```bash
 mint dev
 ```
+Откройте [http://localhost:3000](http://localhost:3000).
 
-View your local preview at `http://localhost:3000`.
+---
 
-## Publishing changes
+## 🚀 Развёртывание изменений
+Изменения автоматически публикуются на продакшн после пуша в `main`.
+**Требования:**
+- Установлен [GitHub App от Mintlify](https://dashboard.mintlify.com/settings/organization/github-app).
+- Файл `docs.json` в корне репозитория.
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+---
 
-## Need help?
+## ⚠️ Решение проблем
+- **Ошибка 404 при локальном запуске?**
+  Проверьте наличие `docs.json` в текущей директории.
+- **CLI не обновляется?**
+  ```bash
+  mint update
+  ```
 
-### Troubleshooting
+---
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+## 📚 Ресурсы
+- [Документация Mintlify](https://mintlify.com/docs)
+- [Дашборд Ratgore Wiki](https://dashboard.mintlify.com)
